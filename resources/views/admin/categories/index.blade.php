@@ -43,31 +43,44 @@
                     </a>
                 </div>
 
-                <div class="col-12 mt-4">   
-                    <div class="card">
-                        <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th class="text-center">Title</th>
-                                        <th class="text-center">Date</th>
-                                        <th class="text-center">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($categories as $category)
+                <div class="col-12 mt-4">
+                    @if ($categories->isNotEmpty())
+                        <div class="card">
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
                                         <tr>
-                                            <td>{{ $category->id }}</td>
-                                            <td class="text-center">{{ $category->title }}</td>
-                                            <td class="text-center">{{ $category->created_at }}</td>
-                                            <td class="text-center"></td>
+                                            <th>ID</th>
+                                            <th class="text-center">Title</th>
+                                            <th class="text-center">Date</th>
+                                            <th class="text-center">Actions</th>
                                         </tr>
-                                    @endforeach 
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($categories as $category)
+                                            <tr>
+                                                <td>{{ $category->id }}</td>
+                                                <td class="text-center">{{ $category->title }}</td>
+                                                <td class="text-center">{{ $category->created_at }}</td>
+                                                <td class="text-center d-flex justify-content-center">
+                                                    <a href="{{ route('admin.category.show', $category->id) }}" class="mr-2"><i class="far fa-eye"></i></a>
+                                                    <a href="{{ route('admin.category.edit', $category->id) }}" class="mr-2"><i class="fas fa-pencil-alt"></i></a>
+                                                    <form action="{{ route('admin.category.delete', $category->id) }}" method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="border-0 bg-transparent ml-0 pl-0"><i class="fas fa-trash text-danger" role="button"></i></button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach 
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>   
+                    @else
+                        <h6 class="text-center">Categories list is currently empty</h2>
+                    @endif
+                    
                 </div>
             </div>
             <!-- /.row -->

@@ -17,10 +17,11 @@ return new class extends Migration
             $table->text('content');
             $table->foreignId('category_id')
                 ->nullable()
-                ->constrained('categories', 'post_category_idx')
+                ->constrained('categories')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
