@@ -80,7 +80,7 @@
     <!-- Summernote -->
     <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
     <!-- Select2 -->
-    <script src="../../plugins/select2/js/select2.full.min.js"></script>
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
     <!-- Specific script -->
     <script>
         $(function () {

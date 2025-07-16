@@ -85,7 +85,7 @@
                                 @endforeach                                                               
                             </select>
                         </div>
-                        <div class="offset-10 col-2">
+                        <div class="offset-10 col-2 mb-2">
                             <button type="submit" class="btn btn-primary w-100">Submit</button>
                         </div>
                     </form>
