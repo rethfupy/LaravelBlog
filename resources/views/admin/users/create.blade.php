@@ -30,6 +30,17 @@
                     <form action="{{ route('admin.user.store') }}" method="post">
                         @csrf
                         <div class="form-group">
+                            <label>Select role</label>
+                            <select name="role_id" class="form-control">
+                                @foreach ($roles as $id => $role)
+                                    <option value="{{ $id }}" {{ $id == old('role_id') ? ' selected' : '' }}>{{ $role }}</option>    
+                                @endforeach
+                            </select>
+                            @error('role_id')
+                                <div class="text-danger pl-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <input type="text" class="form-control" name="name" placeholder="Enter user name">
                             @error('name')
                                 <div class="text-danger pl-1">{{ $message }}</div>

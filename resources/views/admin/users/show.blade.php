@@ -36,6 +36,10 @@
                                         <td>{{ $user->id }}</td>
                                     </tr>
                                     <tr>
+                                        <td>Role</td>
+                                        <td>{{ $roles[$user->role_id] }}</td>
+                                    </tr>
+                                    <tr>
                                         <td>Name</td>
                                         <td>{{ $user->name }}</td>
                                     </tr>
