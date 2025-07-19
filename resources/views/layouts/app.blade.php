@@ -60,9 +60,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#"><span class="flag-icon flag-icon-squared rounded-circle flag-icon-gb"></span> Eng</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Download</a>
-                        </li>
+                        @guest
+                            <li class="nav-item">
+                                <a href="{{ route('register') }}" class="nav-link">Register</a>
+                            </li> 
+                        @endguest
+                        @auth
+                           <li class="nav-item">
+                                <form action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                    <button type="submit" class="nav-link">Log out</button>
+                                </form>
+                            </li> 
+                        @endauth
                     </ul>
                 </div>
             </nav>
@@ -71,6 +81,7 @@
 
     @yield('content')
 
+    {{-- 
     <section class="edica-footer-banner-section">
         <div class="container">
             <div class="footer-banner" data-aos="fade-up">
@@ -83,7 +94,9 @@
             </div>
         </div>
     </section>
-    <footer class="edica-footer" data-aos="fade-up">
+    --}}
+
+    <footer class="edica-footer mt-4" data-aos="fade-up">
         <div class="container">
             <div class="row footer-widget-area">
                 <div class="col-md-3">

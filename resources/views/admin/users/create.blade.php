@@ -52,12 +52,6 @@
                                 <div class="text-danger pl-1">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" name="password" placeholder="Enter user password">
-                            @error('password')
-                                <div class="text-danger pl-1">{{ $message }}</div>
-                            @enderror
-                        </div>
                         <div class="offset-10 col-2">
                             <button type="submit" class="btn btn-primary w-100">Submit</button>
                         </div>
