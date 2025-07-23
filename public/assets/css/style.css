@@ -5187,6 +5187,13 @@ a.badge-dark.focus {
     margin-bottom: 0;
 }
 
+form.list-group-item-action button {
+    border: none;
+    background: none;
+    color: #495057;
+    margin-left: -0.25rem;
+}
+
 .list-group-item-action {
     width: 100%;
     color: #495057;
