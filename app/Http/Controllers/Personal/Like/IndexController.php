@@ -13,7 +13,6 @@ class IndexController extends Controller
     public function __invoke(Request $request)
     {
         $posts = auth()->user()->likedPosts;
-        // dd($posts);
         return view('personal.like.index', compact('posts'));
     }
 }

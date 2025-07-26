@@ -34,7 +34,7 @@
                     
                     <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                         @auth
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('index') }}">Home</a>
                             </li>
                             <li class="nav-item">
@@ -42,7 +42,7 @@
                             </li>
                             @if(auth()->user()->role_id === 0)
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.index') }}">Admin panel</a>
+                                    <a class="nav-link" target="_blank" href="{{ route('admin.index') }}">Admin panel</a>
                                 </li>
                             @endif
                         @endauth

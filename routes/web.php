@@ -17,6 +17,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'perso
     });
     Route::group(['namespace' => 'Comment', 'prefix' => 'comments'], function () {
         Route::get('/','IndexController')->name('personal.comment.index');
+        Route::delete('/{comment}','DeleteController')->name('personal.comment.delete');
     });
 });
 
