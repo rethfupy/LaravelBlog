@@ -26,7 +26,7 @@
                                 @if ($comments->isNotEmpty())
                                     @foreach ($comments as $comment)
                                         <li class="post mb-2">
-                                            <a href="#!" class="post-permalink media px-4 rounded">
+                                            <a href="{{ route('post.show', $comment->post_id) }}" class="post-permalink media px-4 rounded">
                                                 <div class="media-body d-flex justify-content-between align-items-center">
                                                     <h6 class="post-title">{{ $comment->content }}</h6>
                                                     <form action="{{ route('personal.comment.delete', $comment->id) }}" method="post">

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Tag;
 use App\Models\Category;
 use App\Models\User;
+use App\Models\Comment;
 
 class Post extends Model
 {
@@ -28,5 +29,10 @@ class Post extends Model
     public function likedUser()
     {
         return $this->belongsToMany(User::class, 'post_user_likes', 'post_id', 'user_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'post_id', 'id')->latest();
     }
 }

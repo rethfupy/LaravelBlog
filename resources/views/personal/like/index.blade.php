@@ -26,7 +26,7 @@
                                 @if ($posts->isNotEmpty())
                                     @foreach ($posts as $post)
                                         <li class="post">
-                                            <a href="#!" class="post-permalink media px-4 rounded">
+                                            <a href="{{ route('post.show', $post->id) }}" class="post-permalink media px-4 rounded">
                                                 <img src="{{ asset('storage/' . $post->preview_image) }}" class="rounded" alt="{{ $post->title }}">
                                                 <div class="media-body d-flex justify-content-between align-items-center">
                                                     <h6 class="post-title">{{ $post->title }}</h6>

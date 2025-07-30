@@ -12,7 +12,7 @@
                             <img src="{{ asset('storage/' . $post->preview_image) }}" alt="{{ $post->title }}">
                         </div>
                         <p class="blog-post-category">{{ $post->category->title }}</p>
-                        <a href="#" class="blog-post-permalink">
+                        <a href="{{ route('post.show', $post->id) }}" class="blog-post-permalink">
                             <h6 class="blog-post-title">{{ $post->title }}</h6>
                         </a>
                     </div>
@@ -32,7 +32,7 @@
                                     <img src="{{ asset('storage/' . $post->preview_image) }}" alt="{{ $post->title }}">
                                 </div>
                                 <p class="blog-post-category">{{ $post->category->title }}</p>
-                                <a href="#!" class="blog-post-permalink">
+                                <a href="{{ route('post.show', $post->id) }}" class="blog-post-permalink">
                                     <h6 class="blog-post-title">{{ $post->title }}</h6>
                                 </a>
                             </div>
@@ -81,7 +81,7 @@
                     <ul class="post-list">
                         @foreach ($likedPost as $post)
                             <li class="post">
-                                <a href="#!" class="post-permalink media px-2">
+                                <a href="{{ route('post.show', $post->id) }}" class="post-permalink media px-2">
                                     <div
                                         class="rounded mr-2 image-list-container"
                                         style="background-image: url('{{ asset('storage/' . $post->preview_image) }}')"
