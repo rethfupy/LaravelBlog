@@ -18,6 +18,22 @@
 
             <div class="row">
                 <div class="col-lg-9 mx-auto">
+                    @auth
+                        <form action="{{ route('post.like.store', $post->id) }}" class="py-3 d-flex justify-content-end align-items-center" method="post">
+                            @csrf
+                            <button class="border-0 bg-transparent">
+                                <span>{{ $post->liked_users_count }}</span>
+                                <i class="{{ auth()->user()->likedPosts->contains($post->id) ? "fas" : "far" }} fa-heart pl-2"></i>
+                            </button>
+                        </form>
+                    @else
+                        <div class="py-3 d-flex justify-content-end align-items-center">
+                            <span>{{ $post->liked_users_count }}</span>
+                            <i class="far fa-heart pl-2"></i>
+                        </div>
+                    @endauth  
+                    
+
                     @if ($relatedPosts->isNotEmpty())
                         <section class="related-posts">
                             <h2 class="section-title mb-4" data-aos="fade-up">Related Posts</h2>

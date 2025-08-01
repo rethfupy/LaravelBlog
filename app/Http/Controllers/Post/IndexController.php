@@ -16,7 +16,7 @@ class IndexController extends Controller
         $posts = Post::latest()->paginate(6);
         $excludedIds = $posts->pluck('id');
         $randomPosts = Post::whereNotIn('id', $excludedIds)->inRandomOrder()->take(4)->get();
-        $likedPost = Post::withCount('likedUser')->orderBy('liked_user_count', 'desc')->get()->take(4);
+        $likedPost = Post::withCount('likedUsers')->orderBy('liked_user_count', 'desc')->get()->take(4);
 
         return view('posts.index', compact('posts', 'randomPosts', 'likedPost'));
     }
